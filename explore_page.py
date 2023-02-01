@@ -2,10 +2,6 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
-
-st.set_page_config(page_title='Salaroo',layout="centered")
-
-
 def shorten_categories(categories, cutoff):
     categorical_map = {}
     for i in range(len(categories)):
