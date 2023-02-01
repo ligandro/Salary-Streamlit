@@ -1,0 +1,5 @@
+sklearn==0.0.post1
+matplotlib==3.5.1
+scikit-learn
+streamlit
+
