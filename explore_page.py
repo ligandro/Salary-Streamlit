@@ -51,10 +51,10 @@ def load_data():
     df = df.rename({"ConvertedComp": "Salary"}, axis=1)
     return df
 
-data = load_data()
+df = load_data()
 
 def show_explore_page():
-    global data
+    global df
     st.title(":mag: Explore Software Engineer Salaries")
 
     st.write(
@@ -63,7 +63,7 @@ def show_explore_page():
     """
     )
 
-    df1 = data["Country"].value_counts()
+    df1 = df["Country"].value_counts()
 
     fig1, ax1 = plt.subplots()
     ax1.pie(df1, labels=df1.index, autopct="%1.1f%%", shadow=True, startangle=90)
@@ -79,7 +79,7 @@ def show_explore_page():
     """
     )
 
-    da = data.groupby(["Country"])["Salary"].mean().sort_values(ascending=True)
+    da = df.groupby(["Country"])["Salary"].mean().sort_values(ascending=True)
     st.bar_chart(da)
 
     st.write(
@@ -88,8 +88,8 @@ def show_explore_page():
     """
     )
 
-    data = data.groupby(["YearsCodePro"])["Salary"].mean().sort_values(ascending=True)
-    st.line_chart(data) 
+    da2 = df.groupby(["YearsCodePro"])["Salary"].mean().sort_values(ascending=True)
+    st.line_chart(da2) 
     
     st.write(
         """
